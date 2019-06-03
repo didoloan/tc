@@ -1,8 +1,8 @@
 import datetime
 import random
-import sqlalchemy as db
+from sqlalchemy as sqla
 
-engine = db.create_engine('sqlite:///scheduler.sqlite')
+db = sqla.create_engine('postgres://postgres:Fucking10@localhost:5432/toll')
 connection = engine.connect()
 metadata = db.MetaData()
 tollCollectors = db.Table('tollcollectors', metadata, autoload=True, autoload_with=engine)
