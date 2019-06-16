@@ -41,13 +41,10 @@ def getAvailable(shift, day):
     available = []
     for key, values in tollcollectors.items():
         if (len(values)==0):
-            available.append(key)
-        elif (len(values)==5):
-            
+            available.append(key)  
         else:
-            if (len(values)<5 and values[len(values)-1] in acceptable[shift]):
-                available.append(key)
-    
+            if (values[len(values)-1] in acceptable[shift] and key not in unavailable[day]):
+                available.append(key)   
     return available
 
 def populate_shift(date, shift, reqNum):
